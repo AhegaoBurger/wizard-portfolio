@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 export default function DialogBox({ onClose }: { onClose: () => void }) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="w-72 border border-white bg-black"
+        className="w-72 border border-white bg-black pointer-events-auto"
       >
         <div className="p-4 flex flex-col items-center">
           <div className="mb-2">
