@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 
-export default function DialogBox({ onClose }: { onClose: () => void }) {
+export default function DialogBox({
+  onCloseAction,
+}: {
+  onCloseAction: () => void;
+}) {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
       <motion.div
@@ -23,7 +27,7 @@ export default function DialogBox({ onClose }: { onClose: () => void }) {
 
           <motion.button
             className="border border-white px-4 py-1 text-white text-sm"
-            onClick={onClose}
+            onClick={onCloseAction}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
