@@ -1,8 +1,14 @@
-import Window from "@/components/window"
+import Window from "@/components/window";
 
 export default function WizardProfile() {
   return (
-    <Window title="Wizard_Profile" width="w-64" height="h-80" x="left-4" y="top-4">
+    <Window
+      title="Wizard_Profile"
+      width="w-64"
+      height="h-80"
+      x="left-4"
+      y="top-4"
+    >
       <div className="flex flex-col items-center">
         <div className="w-full h-32 bg-pattern-diagonal mb-2 flex items-center justify-center">
           <div className="text-white text-center">
@@ -12,8 +18,11 @@ export default function WizardProfile() {
         </div>
 
         <div className="w-full border border-white p-2 mb-2">
-          <h2 className="text-white text-center font-bold mb-2">CODE WIZARD</h2>
-          <p className="text-white text-xs text-center">Casting powerful web spells since 2015</p>
+          <h2 className="text-white text-center font-bold mb-2">
+            ARTUR SHIROKOV
+          </h2>
+          <p className="text-white text-xs text-center">Full Stack Developer</p>
+          <p className="text-white text-xs text-center mt-1">Lisbon, PT</p>
         </div>
 
         <div className="w-full flex justify-between">
@@ -29,6 +38,5 @@ export default function WizardProfile() {
         </div>
       </div>
     </Window>
-  )
+  );
 }
-

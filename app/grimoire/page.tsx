@@ -21,55 +21,59 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "Enchanted_Dashboard",
-    type: "Web App",
+    name: "Trading_Dashboard",
+    type: "FinTech",
     completion: 100,
     description:
-      "A magical dashboard for monitoring spell effectiveness and tracking magical metrics in real-time.",
+      "A comprehensive cryptocurrency trading and portfolio management platform with real-time data integration and advanced analytics.",
     features: [
-      "Real-time data visualization",
-      "User authentication",
-      "Dark/light mode toggle",
-      "Responsive design",
+      "Real-time integration with multiple exchanges",
+      "Advanced portfolio analytics with PnL tracking",
+      "Interactive and customizable dashboard",
+      "Secure API key management with encryption",
+      "WebSocket-based real-time data updates",
     ],
   },
   {
-    name: "Potion_Tracker",
-    type: "Mobile App",
-    completion: 85,
-    description:
-      "Track brewing status of your magical concoctions with this cross-platform mobile application.",
-    features: [
-      "Inventory management",
-      "Recipe database",
-      "Brewing timers",
-      "Ingredient substitutions",
-    ],
-  },
-  {
-    name: "Spell_Compiler",
-    type: "Developer Tool",
-    completion: 70,
-    description:
-      "Convert ancient runes to modern JavaScript with this innovative code transpiler.",
-    features: [
-      "Syntax highlighting",
-      "Error detection",
-      "Code optimization",
-      "Multiple output formats",
-    ],
-  },
-  {
-    name: "Familiar_Finder",
-    type: "Web Service",
+    name: "Canister_Cloud",
+    type: "Blockchain",
     completion: 100,
     description:
-      "Match wizards with their perfect animal companions using advanced matching algorithms.",
+      "A decentralized, end-to-end encrypted document storage and sharing platform built entirely on the Internet Computer blockchain.",
     features: [
-      "Personality assessment",
-      "Compatibility scoring",
-      "Animal database",
-      "Match recommendations",
+      "End-to-end encryption using VetKD system",
+      "Recipient-specific re-encryption for sharing",
+      "Multi-canister backend architecture in Rust",
+      "Chunked file upload/download mechanism",
+      "Internet Identity integration",
+    ],
+  },
+  {
+    name: "Portfolio_Analytics",
+    type: "FinTech",
+    completion: 90,
+    description:
+      "Advanced cryptocurrency portfolio tracking system with historical performance analysis and customizable metrics.",
+    features: [
+      "Real-time PnL tracking across exchanges",
+      "Historical performance charting",
+      "Customizable metrics and visualizations",
+      "Automated data ingestion pipelines",
+      "Cross-exchange position monitoring",
+    ],
+  },
+  {
+    name: "Secure_File_Sharing",
+    type: "Security",
+    completion: 100,
+    description:
+      "Engineered a secure, end-to-end encrypted file storage and sharing system with decentralized key management.",
+    features: [
+      "Identity-Based Encryption (IBE)",
+      "Decentralized key management",
+      "Secure multi-user access controls",
+      "Blockchain-based authentication",
+      "Encrypted metadata storage",
     ],
   },
 ];

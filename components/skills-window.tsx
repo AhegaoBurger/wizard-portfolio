@@ -1,20 +1,29 @@
-import Window from "@/components/window"
+import Window from "@/components/window";
 
 const skills = [
-  { name: "HTML", level: 5 },
-  { name: "CSS", level: 4 },
-  { name: "JavaScript", level: 5 },
-  { name: "React", level: 4 },
-  { name: "Next.js", level: 3 },
-  { name: "Node.js", level: 3 },
-]
+  { name: "Frontend", level: 5 },
+  { name: "Backend", level: 5 },
+  { name: "FinTech", level: 4 },
+  { name: "Security", level: 5 },
+  { name: "DevOps", level: 3 },
+  { name: "Blockchain", level: 4 },
+];
 
 export default function SkillsWindow() {
   return (
-    <Window title="Magical_Skills" width="w-64" height="h-auto" x="right-4" y="top-4">
+    <Window
+      title="Magical_Skills"
+      width="w-64"
+      height="h-auto"
+      x="right-4"
+      y="top-4"
+    >
       <div className="grid grid-cols-4 gap-2 border border-white p-2 mb-2">
         {[16, 8, 4, 2, 32, 64, 128, 1, 512, 256, 1024, 2048].map((num, i) => (
-          <div key={i} className="border border-white h-8 flex items-center justify-center">
+          <div
+            key={i}
+            className="border border-white h-8 flex items-center justify-center"
+          >
             <span className="text-white text-xs">{num}</span>
           </div>
         ))}
@@ -37,6 +46,5 @@ export default function SkillsWindow() {
         ))}
       </div>
     </Window>
-  )
+  );
 }
-

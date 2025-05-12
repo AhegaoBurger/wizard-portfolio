@@ -22,25 +22,24 @@ const trashItems: TrashItem[] = [
     reason: "Replaced with modern JavaScript and Intersection Observer API",
   },
   {
-    name: "Flash_Animation",
+    name: "PHP_Backend",
     type: "Deprecated Technology",
-    dateDeleted: "2019-12-20",
+    dateDeleted: "2021-12-20",
     reason:
-      "Flash was discontinued, replaced with HTML5 Canvas and CSS animations",
+      "Migrated to Node.js and TypeScript for better type safety and ecosystem",
   },
   {
-    name: "IE_Support",
-    type: "Browser Support",
+    name: "Redux_Boilerplate",
+    type: "Unnecessary Complexity",
     dateDeleted: "2022-06-15",
-    reason:
-      "Internet Explorer reached end-of-life, no longer needed special support",
+    reason: "Simplified state management with React Context and hooks",
   },
   {
-    name: "PHP_Blog",
-    type: "Old Project",
+    name: "CSS_Framework",
+    type: "Bloated Dependency",
     dateDeleted: "2021-03-10",
     reason:
-      "Migrated to a modern JAMstack architecture with better performance",
+      "Switched to TailwindCSS for utility-first approach and smaller bundle size",
   },
   {
     name: "Social_Life.exe",

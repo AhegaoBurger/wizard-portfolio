@@ -17,64 +17,69 @@ type Tool = {
 
 const tools: Tool[] = [
   {
-    name: "Git_Potion",
-    category: "Version Control",
-    mastery: 90,
-    description:
-      "A magical brew that allows you to track changes and collaborate with other wizards.",
-    uses: [
-      "Track code changes",
-      "Branch and merge spells",
-      "Collaborate with other wizards",
-      "Revert to previous versions",
-    ],
-  },
-  {
-    name: "Docker_Elixir",
-    category: "Containerization",
-    mastery: 75,
-    description:
-      "Package your spells and all their dependencies into portable containers.",
-    uses: [
-      "Create isolated environments",
-      "Ensure consistent deployments",
-      "Scale applications easily",
-      "Simplify configuration",
-    ],
-  },
-  {
-    name: "VS_Code_Tincture",
-    category: "Development",
+    name: "Next.js_Elixir",
+    category: "Frontend",
     mastery: 95,
     description:
-      "A powerful editor potion that enhances your spell-writing abilities.",
+      "A powerful framework for building server-rendered React applications with seamless routing.",
     uses: [
-      "Syntax highlighting",
-      "Integrated terminal",
-      "Extensions and plugins",
-      "Debugging tools",
+      "Server-side rendering",
+      "Static site generation",
+      "API routes",
+      "File-based routing",
     ],
   },
   {
-    name: "Jest_Serum",
-    category: "Testing",
-    mastery: 80,
+    name: "TypeScript_Potion",
+    category: "Language",
+    mastery: 90,
     description:
-      "A testing solution that ensures your spells work as intended.",
+      "A strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
     uses: [
-      "Unit testing",
-      "Integration testing",
-      "Mocking capabilities",
-      "Coverage reports",
+      "Type safety",
+      "Code organization",
+      "Enhanced IDE support",
+      "Error prevention",
     ],
   },
   {
-    name: "Figma_Extract",
-    category: "Design",
-    mastery: 70,
+    name: "Rust_Tincture",
+    category: "Backend",
+    mastery: 85,
     description:
-      "A design tool that helps visualize your magical interfaces before casting them.",
-    uses: ["UI/UX design", "Prototyping", "Collaboration", "Design systems"],
+      "A language empowering everyone to build reliable and efficient software, particularly for systems programming.",
+    uses: [
+      "Internet Computer canisters",
+      "High-performance backends",
+      "Memory safety",
+      "Concurrent programming",
+    ],
+  },
+  {
+    name: "Crypto_API_Extract",
+    category: "FinTech",
+    mastery: 90,
+    description:
+      "Integration with cryptocurrency exchange APIs for real-time data and trading capabilities.",
+    uses: [
+      "Market data retrieval",
+      "Order execution",
+      "Portfolio tracking",
+      "WebSocket connections",
+    ],
+  },
+  {
+    name: "VetKD_Essence",
+    category: "Security",
+    mastery: 85,
+    description:
+      "A specialized cryptographic system for decentralized key derivation on the Internet Computer.",
+    uses: [
+      "End-to-end encryption",
+      "Secure file sharing",
+      "Identity-based encryption",
+      "Decentralized key management",
+    ],
   },
 ];
 
