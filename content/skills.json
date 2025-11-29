@@ -1,0 +1,110 @@
+{
+  "skills": [
+    {
+      "id": "frontend-category",
+      "name": "Frontend",
+      "category": "Category",
+      "level": 5,
+      "available": true
+    },
+    {
+      "id": "backend-category",
+      "name": "Backend",
+      "category": "Category",
+      "level": 5,
+      "available": true
+    },
+    {
+      "id": "fintech-category",
+      "name": "FinTech",
+      "category": "Category",
+      "level": 4,
+      "available": true
+    },
+    {
+      "id": "security-category",
+      "name": "Security",
+      "category": "Category",
+      "level": 5,
+      "available": true
+    },
+    {
+      "id": "devops-category",
+      "name": "DevOps",
+      "category": "Category",
+      "level": 3,
+      "available": true
+    },
+    {
+      "id": "blockchain-category",
+      "name": "Blockchain",
+      "category": "Category",
+      "level": 4,
+      "available": true
+    },
+    {
+      "id": "html-css",
+      "name": "HTML/CSS",
+      "category": "Frontend",
+      "level": 5,
+      "available": true,
+      "technologies": ["HTML5", "CSS3", "Tailwind CSS"]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "category": "Frontend",
+      "level": 4,
+      "available": true,
+      "technologies": ["ES6+", "DOM Manipulation"]
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "category": "Frontend",
+      "level": 5,
+      "available": true,
+      "technologies": ["React 19", "Hooks", "Context API"]
+    },
+    {
+      "id": "nextjs",
+      "name": "Next.js",
+      "category": "Frontend",
+      "level": 4,
+      "available": true,
+      "technologies": ["App Router", "SSR", "API Routes"]
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "category": "Language",
+      "level": 3,
+      "available": true,
+      "technologies": ["Type System", "Generics"]
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "category": "Backend",
+      "level": 3,
+      "available": true,
+      "technologies": ["Express", "APIs"]
+    },
+    {
+      "id": "graphql",
+      "name": "GraphQL",
+      "category": "Backend",
+      "level": 2,
+      "available": false,
+      "technologies": ["Queries", "Mutations"]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "Backend",
+      "level": 3,
+      "available": true,
+      "technologies": ["Scripts", "Automation"]
+    }
+  ]
+}

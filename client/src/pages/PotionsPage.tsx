@@ -1,0 +1,7 @@
+export default function PotionsPage() {
+  return (
+    <div className="min-h-screen bg-black text-white font-pixel flex items-center justify-center">
+      <h1 className="text-4xl">Potions Page - Coming Soon</h1>
+    </div>
+  )
+}

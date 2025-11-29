@@ -1,0 +1,64 @@
+{
+  "projects": [
+    {
+      "id": "trading-dashboard",
+      "name": "Trading_Dashboard",
+      "type": "FinTech",
+      "completion": 100,
+      "description": "A comprehensive cryptocurrency trading and portfolio management platform with real-time data integration and advanced analytics.",
+      "features": [
+        "Real-time integration with multiple exchanges",
+        "Advanced portfolio analytics with PnL tracking",
+        "Interactive and customizable dashboard",
+        "Secure API key management with encryption",
+        "WebSocket-based real-time data updates"
+      ],
+      "featured": true
+    },
+    {
+      "id": "canister-cloud",
+      "name": "Canister_Cloud",
+      "type": "Blockchain",
+      "completion": 100,
+      "description": "A decentralized, end-to-end encrypted document storage and sharing platform built entirely on the Internet Computer blockchain.",
+      "features": [
+        "End-to-end encryption using VetKD system",
+        "Recipient-specific re-encryption for sharing",
+        "Multi-canister backend architecture in Rust",
+        "Chunked file upload/download mechanism",
+        "Internet Identity integration"
+      ],
+      "featured": true
+    },
+    {
+      "id": "portfolio-analytics",
+      "name": "Portfolio_Analytics",
+      "type": "FinTech",
+      "completion": 90,
+      "description": "Advanced cryptocurrency portfolio tracking system with historical performance analysis and customizable metrics.",
+      "features": [
+        "Real-time PnL tracking across exchanges",
+        "Historical performance charting",
+        "Customizable metrics and visualizations",
+        "Automated data ingestion pipelines",
+        "Cross-exchange position monitoring"
+      ],
+      "featured": false
+    },
+    {
+      "id": "secure-file-sharing",
+      "name": "Secure_File_Sharing",
+      "type": "Security",
+      "completion": 100,
+      "description": "Engineered a secure, end-to-end encrypted file storage and sharing system with decentralized key management.",
+      "features": [
+        "Identity-Based Encryption (IBE)",
+        "Decentralized key management",
+        "Secure multi-user access controls",
+        "Blockchain-based authentication",
+        "Encrypted metadata storage"
+      ],
+      "featured": false
+    }
+  ]
+}

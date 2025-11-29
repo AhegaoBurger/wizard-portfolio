@@ -1,0 +1,58 @@
+{
+  "spells": [
+    {
+      "id": "next-reactium",
+      "name": "Next_Reactium",
+      "type": "Frontend",
+      "level": 5,
+      "description": "Conjures responsive interfaces with Next.js and React",
+      "icon": "⚛️",
+      "castable": true
+    },
+    {
+      "id": "svelte-enchantus",
+      "name": "Svelte_Enchantus",
+      "type": "Frontend",
+      "level": 4,
+      "description": "Creates reactive UIs with SvelteKit",
+      "icon": "🔄",
+      "castable": true
+    },
+    {
+      "id": "typescript-typus",
+      "name": "TypeScript_Typus",
+      "type": "Language",
+      "level": 5,
+      "description": "Enforces type safety across the realm",
+      "icon": "TS",
+      "castable": true
+    },
+    {
+      "id": "rust-canisterium",
+      "name": "Rust_Canisterium",
+      "type": "Backend",
+      "level": 4,
+      "description": "Forges secure and efficient backend systems",
+      "icon": "🦀",
+      "castable": true
+    },
+    {
+      "id": "crypto-exchangus",
+      "name": "Crypto_Exchangus",
+      "type": "FinTech",
+      "level": 4,
+      "description": "Channels the power of trading APIs and market data",
+      "icon": "📊",
+      "castable": true
+    },
+    {
+      "id": "cryptographus-maxima",
+      "name": "Cryptographus_Maxima",
+      "type": "Security",
+      "level": 5,
+      "description": "Weaves impenetrable end-to-end encryption spells",
+      "icon": "🔒",
+      "castable": true
+    }
+  ]
+}

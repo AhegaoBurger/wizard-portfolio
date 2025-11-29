@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "id": "jquery-scroll",
+      "name": "jQuery_Scroll",
+      "type": "Legacy Code",
+      "dateDeleted": "2020-05-15",
+      "reason": "Replaced with modern JavaScript and Intersection Observer API"
+    },
+    {
+      "id": "php-backend",
+      "name": "PHP_Backend",
+      "type": "Deprecated Technology",
+      "dateDeleted": "2021-12-20",
+      "reason": "Migrated to Node.js and TypeScript for better type safety and ecosystem"
+    },
+    {
+      "id": "redux-boilerplate",
+      "name": "Redux_Boilerplate",
+      "type": "Unnecessary Complexity",
+      "dateDeleted": "2022-06-15",
+      "reason": "Simplified state management with React Context and hooks"
+    },
+    {
+      "id": "css-framework",
+      "name": "CSS_Framework",
+      "type": "Bloated Dependency",
+      "dateDeleted": "2021-03-10",
+      "reason": "Switched to TailwindCSS for utility-first approach and smaller bundle size"
+    },
+    {
+      "id": "social-life",
+      "name": "Social_Life.exe",
+      "type": "Personal",
+      "dateDeleted": "2023-01-01",
+      "reason": "Too busy coding to maintain"
+    }
+  ]
+}
