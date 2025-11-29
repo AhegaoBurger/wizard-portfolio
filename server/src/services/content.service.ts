@@ -9,7 +9,7 @@ import type {
   TrashData
 } from '../../../shared/types/index.js'
 
-const CONTENT_DIR = join(process.cwd(), '..', 'content')
+const CONTENT_DIR = join(process.cwd(), 'content')
 
 // Simple in-memory cache
 const cache = new Map<string, any>()

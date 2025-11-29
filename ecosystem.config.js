@@ -1,7 +1,8 @@
 module.exports = {
   apps: [{
     name: 'wizard-portfolio',
-    script: './server/dist/index.js',
+    script: './server/dist/server/src/index.js',
+    cwd: '/root/projects/wizard-portfolio',
     instances: 1,
     autorestart: true,
     watch: false,
