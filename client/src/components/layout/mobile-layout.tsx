@@ -2,7 +2,7 @@
 import type React from "react";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import TabBar from "@/components/content/tab-bar";
 import MobileWindow from "@/components/layout/mobile-window";
 import Clock from "@/components/navigation/clock";
@@ -18,7 +18,7 @@ interface MobileLayoutProps {
 }
 
 export default function MobileLayout({ windows }: MobileLayoutProps) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
 
   const handleTabChange = (tabId: string) => {
@@ -40,7 +40,7 @@ export default function MobileLayout({ windows }: MobileLayoutProps) {
       <div className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white p-2 flex justify-between items-center">
         <button
           className="border border-white px-2 py-1 text-white text-xs"
-          onClick={() => router.push("/")}
+          onClick={() => navigate("/")}
         >
           HOME
         </button>
