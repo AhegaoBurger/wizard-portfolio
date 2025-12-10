@@ -2,10 +2,18 @@
 
 # dependencies
 /node_modules
+/client/node_modules
+/server/node_modules
+/shared/node_modules
 
-# next.js
-/.next/
-/out/
+# build outputs
+/dist
+/client/dist
+/server/dist
+
+# vite
+/client/node_modules/.vite
+.vite
 
 # production
 /build
@@ -19,9 +27,5 @@ yarn-error.log*
 # env files
 .env*
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
-next-env.d.ts

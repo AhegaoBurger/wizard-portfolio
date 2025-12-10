@@ -1,0 +1,69 @@
+{
+  "tools": [
+    {
+      "id": "nextjs-elixir",
+      "name": "Next.js_Elixir",
+      "category": "Frontend",
+      "mastery": 95,
+      "description": "A powerful framework for building server-rendered React applications with seamless routing.",
+      "uses": [
+        "Server-side rendering",
+        "Static site generation",
+        "API routes",
+        "File-based routing"
+      ]
+    },
+    {
+      "id": "typescript-potion",
+      "name": "TypeScript_Potion",
+      "category": "Language",
+      "mastery": 90,
+      "description": "A strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
+      "uses": [
+        "Type safety",
+        "Code organization",
+        "Enhanced IDE support",
+        "Error prevention"
+      ]
+    },
+    {
+      "id": "rust-tincture",
+      "name": "Rust_Tincture",
+      "category": "Backend",
+      "mastery": 85,
+      "description": "A language empowering everyone to build reliable and efficient software, particularly for systems programming.",
+      "uses": [
+        "Internet Computer canisters",
+        "High-performance backends",
+        "Memory safety",
+        "Concurrent programming"
+      ]
+    },
+    {
+      "id": "crypto-api-extract",
+      "name": "Crypto_API_Extract",
+      "category": "FinTech",
+      "mastery": 90,
+      "description": "Integration with cryptocurrency exchange APIs for real-time data and trading capabilities.",
+      "uses": [
+        "Market data retrieval",
+        "Order execution",
+        "Portfolio tracking",
+        "WebSocket connections"
+      ]
+    },
+    {
+      "id": "vetkd-essence",
+      "name": "VetKD_Essence",
+      "category": "Security",
+      "mastery": 85,
+      "description": "A specialized cryptographic system for decentralized key derivation on the Internet Computer.",
+      "uses": [
+        "End-to-end encryption",
+        "Secure file sharing",
+        "Identity-based encryption",
+        "Decentralized key management"
+      ]
+    }
+  ]
+}
