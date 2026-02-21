@@ -1,5 +1,5 @@
 import { readFile } from 'fs/promises'
-import { join } from 'path'
+import { join, resolve } from 'path'
 import type {
   Profile,
   ProjectsData,
@@ -9,7 +9,9 @@ import type {
   TrashData
 } from '../../../shared/types/index.js'
 
-const CONTENT_DIR = join(process.cwd(), 'content')
+// Resolve project root from this file's location (server/src/services/)
+const PROJECT_ROOT = resolve(import.meta.dir, '..', '..', '..')
+const CONTENT_DIR = join(PROJECT_ROOT, 'content')
 
 // Simple in-memory cache
 const cache = new Map<string, any>()

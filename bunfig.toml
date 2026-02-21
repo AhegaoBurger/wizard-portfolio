@@ -1,0 +1,5 @@
+[install]
+exact = true
+
+[workspace]
+packages = ["client", "server", "shared"]

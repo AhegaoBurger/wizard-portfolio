@@ -4,17 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "dev": "bun run --hot src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist --target bun",
+    "start": "bun run dist/index.js"
   },
   "dependencies": {
-    "@hono/node-server": "^1.4.0",
     "hono": "^4.10.7"
   },
   "devDependencies": {
-    "@types/node": "^22.10.1",
-    "tsx": "^4.7.0",
+    "@types/bun": "latest",
     "typescript": "^5.6.3"
   }
 }

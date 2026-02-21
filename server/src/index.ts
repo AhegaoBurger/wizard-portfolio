@@ -1,9 +1,11 @@
-import { serve } from '@hono/node-server'
-import { serveStatic } from '@hono/node-server/serve-static'
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
+import { serveStatic } from 'hono/bun'
 import contentRoutes from './routes/content.js'
+import pagesRoutes from './routes/pages.js'
+import adminRoutes from './routes/admin.js'
+import { seedDatabase } from './db/seed.js'
 
 const app = new Hono()
 
@@ -16,6 +18,8 @@ app.use('*', cors({
 
 // API Routes
 app.route('/api/content', contentRoutes)
+app.route('/api/pages', pagesRoutes)
+app.route('/api/admin', adminRoutes)
 
 // Health check endpoint
 app.get('/api/health', (c) => {
@@ -32,13 +36,18 @@ if (process.env.NODE_ENV === 'production') {
 
 const port = Number(process.env.PORT) || 3000
 
-console.log(`🧙 Wizard Portfolio Server starting on port ${port}`)
-console.log(`📁 Serving content from ./content directory`)
-console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`)
+// Seed database on startup
+try {
+  seedDatabase()
+} catch (error) {
+  console.error('Failed to seed database:', error)
+}
 
-serve({
+console.log(`Wizard Portfolio Server starting on port ${port}`)
+console.log(`Serving content from ./content directory`)
+console.log(`Environment: ${process.env.NODE_ENV || 'development'}`)
+
+export default {
+  port,
   fetch: app.fetch,
-  port
-})
-
-export default app
+}

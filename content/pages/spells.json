@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "id": "spells",
+    "route": "/spells",
+    "title": "Spells"
+  },
+  "schema": {
+    "spells": {
+      "type": "array",
+      "label": "Spells",
+      "items": {
+        "type": "object",
+        "fields": {
+          "name": { "type": "string", "label": "Spell Name" },
+          "type": { "type": "string", "label": "Type" },
+          "level": { "type": "number", "label": "Level (1-5)" },
+          "description": { "type": "string", "label": "Description" },
+          "icon": { "type": "string", "label": "Icon" }
+        }
+      }
+    }
+  },
+  "layout": {
+    "type": "page",
+    "behaviors": [{ "preset": "fadeIn" }],
+    "children": [
+      {
+        "type": "window",
+        "props": { "title": "Spellbook", "width": "w-80", "height": "h-96", "x": "left-4", "y": "top-4" },
+        "children": [
+          {
+            "type": "list",
+            "bind": "spells",
+            "itemLayout": {
+              "type": "flex",
+              "props": { "direction": "row", "justify": "between", "align": "center" },
+              "children": [
+                { "type": "text", "field": "name", "props": { "variant": "label" } },
+                { "type": "text", "field": "type", "props": { "variant": "caption" } }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "data": {
+    "spells": [
+      {
+        "name": "Next_Reactium",
+        "type": "Frontend",
+        "level": 5,
+        "description": "Conjures responsive interfaces with Next.js and React",
+        "icon": "\u269b\ufe0f"
+      },
+      {
+        "name": "Svelte_Enchantus",
+        "type": "Frontend",
+        "level": 4,
+        "description": "Creates reactive UIs with SvelteKit",
+        "icon": "\ud83d\udd04"
+      },
+      {
+        "name": "TypeScript_Typus",
+        "type": "Language",
+        "level": 5,
+        "description": "Enforces type safety across the realm",
+        "icon": "TS"
+      },
+      {
+        "name": "Rust_Canisterium",
+        "type": "Backend",
+        "level": 4,
+        "description": "Forges secure and efficient backend systems",
+        "icon": "\ud83e\udd80"
+      },
+      {
+        "name": "Crypto_Exchangus",
+        "type": "FinTech",
+        "level": 4,
+        "description": "Channels the power of trading APIs and market data",
+        "icon": "\ud83d\udcca"
+      },
+      {
+        "name": "Cryptographus_Maxima",
+        "type": "Security",
+        "level": 5,
+        "description": "Weaves impenetrable end-to-end encryption spells",
+        "icon": "\ud83d\udd12"
+      }
+    ]
+  }
+}

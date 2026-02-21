@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "id": "home",
+    "route": "/",
+    "title": "Home"
+  },
+  "schema": {
+    "profile": {
+      "type": "object",
+      "fields": {
+        "name": { "type": "string", "label": "Name" },
+        "title": { "type": "string", "label": "Title" },
+        "location": { "type": "string", "label": "Location" },
+        "email": { "type": "string", "label": "Email" }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "label": "Skills",
+      "items": {
+        "type": "object",
+        "fields": {
+          "name": { "type": "string", "label": "Skill Name" },
+          "level": { "type": "number", "label": "Level (1-5)" }
+        }
+      }
+    }
+  },
+  "layout": {
+    "type": "page",
+    "responsive": { "desktop": "grid-2col", "mobile": "stack" },
+    "behaviors": [{ "preset": "fadeIn" }],
+    "children": [
+      {
+        "type": "window",
+        "props": { "title": "Wizard_Profile", "width": "w-64", "height": "h-80", "x": "left-4", "y": "top-4" },
+        "children": [
+          { "type": "text", "field": "profile.name", "props": { "variant": "heading" } },
+          { "type": "text", "field": "profile.title", "props": { "variant": "subtitle" } },
+          { "type": "text", "field": "profile.location", "props": { "variant": "body" } },
+          { "type": "text", "field": "profile.email", "props": { "variant": "caption" } }
+        ]
+      },
+      {
+        "type": "window",
+        "props": { "title": "Magical_Skills", "width": "w-64", "height": "h-auto", "x": "right-4", "y": "top-4" },
+        "children": [
+          {
+            "type": "list",
+            "bind": "skills",
+            "itemLayout": {
+              "type": "flex",
+              "props": { "direction": "row", "justify": "between", "align": "center" },
+              "children": [
+                { "type": "text", "field": "name", "props": { "variant": "label" } },
+                { "type": "progress-bar", "field": "level", "props": { "max": 5, "pattern": "dots" } }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "data": {
+    "profile": {
+      "name": "ARTUR SHIROKOV",
+      "title": "Full Stack Developer",
+      "location": "Lisbon, PT",
+      "email": "artur.wiseman@proton.me"
+    },
+    "skills": [
+      { "name": "Frontend", "level": 5 },
+      { "name": "Backend", "level": 5 },
+      { "name": "FinTech", "level": 4 },
+      { "name": "Security", "level": 5 },
+      { "name": "DevOps", "level": 3 },
+      { "name": "Blockchain", "level": 4 }
+    ]
+  }
+}

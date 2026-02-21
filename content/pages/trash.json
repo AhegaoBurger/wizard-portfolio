@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "id": "trash",
+    "route": "/trash",
+    "title": "Trash"
+  },
+  "schema": {
+    "items": {
+      "type": "array",
+      "label": "Deleted Items",
+      "items": {
+        "type": "object",
+        "fields": {
+          "name": { "type": "string", "label": "Item Name" },
+          "type": { "type": "string", "label": "Type" },
+          "dateDeleted": { "type": "date", "label": "Date Deleted" },
+          "reason": { "type": "string", "label": "Reason" }
+        }
+      }
+    }
+  },
+  "layout": {
+    "type": "page",
+    "behaviors": [{ "preset": "fadeIn" }],
+    "children": [
+      {
+        "type": "window",
+        "props": { "title": "Trash_Bin", "width": "w-80", "height": "h-96", "x": "left-4", "y": "top-4" },
+        "children": [
+          {
+            "type": "list",
+            "bind": "items",
+            "itemLayout": {
+              "type": "flex",
+              "props": { "direction": "row", "justify": "between", "align": "center" },
+              "children": [
+                { "type": "text", "field": "name", "props": { "variant": "label" } },
+                { "type": "text", "field": "type", "props": { "variant": "caption" } }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "data": {
+    "items": [
+      {
+        "name": "jQuery_Scroll",
+        "type": "Legacy Code",
+        "dateDeleted": "2020-05-15",
+        "reason": "Replaced with modern JavaScript and Intersection Observer API"
+      },
+      {
+        "name": "PHP_Backend",
+        "type": "Deprecated Technology",
+        "dateDeleted": "2021-12-20",
+        "reason": "Migrated to Node.js and TypeScript for better type safety and ecosystem"
+      },
+      {
+        "name": "Redux_Boilerplate",
+        "type": "Unnecessary Complexity",
+        "dateDeleted": "2022-06-15",
+        "reason": "Simplified state management with React Context and hooks"
+      },
+      {
+        "name": "CSS_Framework",
+        "type": "Bloated Dependency",
+        "dateDeleted": "2021-03-10",
+        "reason": "Switched to TailwindCSS for utility-first approach and smaller bundle size"
+      },
+      {
+        "name": "Social_Life.exe",
+        "type": "Personal",
+        "dateDeleted": "2023-01-01",
+        "reason": "Too busy coding to maintain"
+      }
+    ]
+  }
+}
