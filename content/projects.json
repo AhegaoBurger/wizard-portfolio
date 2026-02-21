@@ -3,8 +3,13 @@
     {
       "id": "trading-dashboard",
       "name": "Trading_Dashboard",
-      "type": "FinTech",
+      "type": "Systems",
+      "difficulty": 4,
       "completion": 100,
+      "challenge": "Needed a real-time trading platform that could handle multiple exchange APIs with sub-second latency and reliable state management.",
+      "approach": "Built a WebSocket-based event pipeline feeding React state via TanStack Query. Designed a modular exchange adapter pattern so adding new exchanges requires minimal code. Implemented encrypted credential storage.",
+      "outcome": "Production system handling 5+ exchanges with real-time updates. Learned patterns for reliable WebSocket reconnection and state reconciliation.",
+      "tech": ["TypeScript", "React", "WebSocket", "Node.js", "PostgreSQL"],
       "description": "A comprehensive cryptocurrency trading and portfolio management platform with real-time data integration and advanced analytics.",
       "features": [
         "Real-time integration with multiple exchanges",
@@ -18,8 +23,13 @@
     {
       "id": "canister-cloud",
       "name": "Canister_Cloud",
-      "type": "Blockchain",
+      "type": "Security",
+      "difficulty": 5,
       "completion": 100,
+      "challenge": "Building truly end-to-end encrypted file storage where even the server cannot read user data, with secure sharing between users.",
+      "approach": "Implemented Identity-Based Encryption via Internet Computer's VetKD system. Designed a multi-canister Rust architecture with chunked uploads and recipient-specific re-encryption for sharing.",
+      "outcome": "Fully decentralized E2E encrypted storage. Deep understanding of IBE schemes, canister architecture, and cryptographic key management.",
+      "tech": ["Rust", "Internet Computer", "WebAssembly", "TypeScript", "Cryptography"],
       "description": "A decentralized, end-to-end encrypted document storage and sharing platform built entirely on the Internet Computer blockchain.",
       "features": [
         "End-to-end encryption using VetKD system",
@@ -33,8 +43,13 @@
     {
       "id": "portfolio-analytics",
       "name": "Portfolio_Analytics",
-      "type": "FinTech",
+      "type": "Data Engineering",
+      "difficulty": 3,
       "completion": 90,
+      "challenge": "Aggregating position data across multiple exchanges with different APIs, time zones, and data formats into unified analytics.",
+      "approach": "Built automated data ingestion pipelines that normalize exchange-specific formats. Designed a time-series storage schema optimized for historical queries and aggregation.",
+      "outcome": "Unified cross-exchange analytics with historical performance tracking. Gained experience with data pipeline reliability and time-series analysis.",
+      "tech": ["Python", "TypeScript", "PostgreSQL", "React", "REST APIs"],
       "description": "Advanced cryptocurrency portfolio tracking system with historical performance analysis and customizable metrics.",
       "features": [
         "Real-time PnL tracking across exchanges",
@@ -49,7 +64,12 @@
       "id": "secure-file-sharing",
       "name": "Secure_File_Sharing",
       "type": "Security",
+      "difficulty": 4,
       "completion": 100,
+      "challenge": "Implementing secure multi-user file sharing where encryption keys are managed without a central trusted authority.",
+      "approach": "Designed a decentralized key management system using Identity-Based Encryption. Built secure access control with blockchain-based authentication and encrypted metadata.",
+      "outcome": "Working secure sharing system with no central key server. Deep knowledge of IBE, access control models, and threat modeling.",
+      "tech": ["Rust", "TypeScript", "Cryptography", "WebAssembly"],
       "description": "Engineered a secure, end-to-end encrypted file storage and sharing system with decentralized key management.",
       "features": [
         "Identity-Based Encryption (IBE)",

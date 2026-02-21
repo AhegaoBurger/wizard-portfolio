@@ -1,6 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { PotionsPage } from '@/features/potions'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/potions')({
-  component: PotionsPage,
+  beforeLoad: () => {
+    throw redirect({ to: '/spells' })
+  },
 })

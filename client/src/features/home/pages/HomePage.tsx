@@ -73,7 +73,7 @@ export default function HomePage() {
             whileTap={{ scale: 0.95 }}
             onClick={() => navigateTo("/spells")}
           >
-            <FolderIcon label="Spells" />
+            <FolderIcon label="Spellbook" />
           </motion.div>
 
           <motion.div
@@ -91,15 +91,25 @@ export default function HomePage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.3 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => navigateTo("/potions")}
+            onClick={() => navigateTo("/quests")}
           >
-            <FolderIcon label="Potions" />
+            <FolderIcon label="Quests" />
           </motion.div>
 
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.3 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigateTo("/laboratory")}
+          >
+            <FolderIcon label="Lab" />
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.3 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigateTo("/trash")}
             className="flex flex-col items-center gap-1"
@@ -169,7 +179,7 @@ export default function HomePage() {
               whileTap={{ scale: 0.95 }}
               onClick={() => navigateTo("/spells")}
             >
-              <FolderIcon label="Spells" />
+              <FolderIcon label="Spellbook" />
             </motion.div>
 
             <motion.div
@@ -189,15 +199,26 @@ export default function HomePage() {
               transition={{ delay: 0.8, duration: 0.3 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigateTo("/potions")}
+              onClick={() => navigateTo("/quests")}
             >
-              <FolderIcon label="Potions" />
+              <FolderIcon label="Quests" />
             </motion.div>
 
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigateTo("/laboratory")}
+            >
+              <FolderIcon label="Lab" />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.0, duration: 0.3 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigateTo("/trash")}

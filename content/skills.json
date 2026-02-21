@@ -1,6 +1,27 @@
 {
   "skills": [
     {
+      "id": "ml-ai-category",
+      "name": "ML/AI",
+      "category": "Category",
+      "level": 2,
+      "available": true
+    },
+    {
+      "id": "robotics-category",
+      "name": "Robotics",
+      "category": "Category",
+      "level": 1,
+      "available": true
+    },
+    {
+      "id": "systems-category",
+      "name": "Systems",
+      "category": "Category",
+      "level": 4,
+      "available": true
+    },
+    {
       "id": "frontend-category",
       "name": "Frontend",
       "category": "Category",
@@ -15,13 +36,6 @@
       "available": true
     },
     {
-      "id": "fintech-category",
-      "name": "FinTech",
-      "category": "Category",
-      "level": 4,
-      "available": true
-    },
-    {
       "id": "security-category",
       "name": "Security",
       "category": "Category",
@@ -29,34 +43,36 @@
       "available": true
     },
     {
-      "id": "devops-category",
-      "name": "DevOps",
-      "category": "Category",
+      "id": "python",
+      "name": "Python",
+      "category": "ML/AI",
       "level": 3,
-      "available": true
-    },
-    {
-      "id": "blockchain-category",
-      "name": "Blockchain",
-      "category": "Category",
-      "level": 4,
-      "available": true
-    },
-    {
-      "id": "html-css",
-      "name": "HTML/CSS",
-      "category": "Frontend",
-      "level": 5,
       "available": true,
-      "technologies": ["HTML5", "CSS3", "Tailwind CSS"]
+      "technologies": ["PyTorch", "NumPy", "OpenCV"]
     },
     {
-      "id": "javascript",
-      "name": "JavaScript",
-      "category": "Frontend",
+      "id": "pytorch",
+      "name": "PyTorch",
+      "category": "ML/AI",
+      "level": 2,
+      "available": true,
+      "technologies": ["Neural Networks", "Training", "Inference"]
+    },
+    {
+      "id": "ros2",
+      "name": "ROS2",
+      "category": "Robotics",
+      "level": 1,
+      "available": true,
+      "technologies": ["Pub/Sub", "Services", "Actions"]
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "category": "Systems",
       "level": 4,
       "available": true,
-      "technologies": ["ES6+", "DOM Manipulation"]
+      "technologies": ["Type System", "Generics"]
     },
     {
       "id": "react",
@@ -67,44 +83,28 @@
       "technologies": ["React 19", "Hooks", "Context API"]
     },
     {
-      "id": "nextjs",
-      "name": "Next.js",
-      "category": "Frontend",
-      "level": 4,
-      "available": true,
-      "technologies": ["App Router", "SSR", "API Routes"]
-    },
-    {
-      "id": "typescript",
-      "name": "TypeScript",
-      "category": "Language",
-      "level": 3,
-      "available": true,
-      "technologies": ["Type System", "Generics"]
-    },
-    {
       "id": "nodejs",
       "name": "Node.js",
       "category": "Backend",
-      "level": 3,
+      "level": 4,
       "available": true,
-      "technologies": ["Express", "APIs"]
+      "technologies": ["Hono", "Express", "APIs"]
     },
     {
-      "id": "graphql",
-      "name": "GraphQL",
-      "category": "Backend",
-      "level": 2,
-      "available": false,
-      "technologies": ["Queries", "Mutations"]
-    },
-    {
-      "id": "python",
-      "name": "Python",
-      "category": "Backend",
+      "id": "rust",
+      "name": "Rust",
+      "category": "Systems",
       "level": 3,
       "available": true,
-      "technologies": ["Scripts", "Automation"]
+      "technologies": ["WebAssembly", "Canisters"]
+    },
+    {
+      "id": "cryptography",
+      "name": "Cryptography",
+      "category": "Security",
+      "level": 4,
+      "available": true,
+      "technologies": ["E2E Encryption", "IBE", "Key Management"]
     }
   ]
 }

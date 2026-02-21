@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { SpellsPage } from '@/features/spells'
+import { SpellbookPage } from '@/features/spellbook'
 
 export const Route = createFileRoute('/spells')({
-  component: SpellsPage,
+  component: SpellbookPage,
 })

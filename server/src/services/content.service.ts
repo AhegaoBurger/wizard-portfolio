@@ -6,7 +6,10 @@ import type {
   SkillsData,
   SpellsData,
   ToolsData,
-  TrashData
+  TrashData,
+  SkillTreeData,
+  QuestLogData,
+  LaboratoryData
 } from '../../../shared/types/index.js'
 
 // Resolve project root from this file's location (server/src/services/)
@@ -47,6 +50,9 @@ export const getSkills = () => readJSON<SkillsData>('skills.json')
 export const getSpells = () => readJSON<SpellsData>('spells.json')
 export const getTools = () => readJSON<ToolsData>('tools.json')
 export const getTrash = () => readJSON<TrashData>('trash.json')
+export const getSkillTree = () => readJSON<SkillTreeData>('skill-tree.json')
+export const getQuestLog = () => readJSON<QuestLogData>('quest-log.json')
+export const getLaboratory = () => readJSON<LaboratoryData>('laboratory.json')
 
 // Future DB migration example:
 // export const getProjects = async () => {

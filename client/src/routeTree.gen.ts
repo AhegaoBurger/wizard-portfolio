@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrashRouteImport } from './routes/trash'
 import { Route as SpellsRouteImport } from './routes/spells'
+import { Route as QuestsRouteImport } from './routes/quests'
 import { Route as PotionsRouteImport } from './routes/potions'
+import { Route as LaboratoryRouteImport } from './routes/laboratory'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GrimoireIndexRouteImport } from './routes/grimoire/index'
 import { Route as AdminEditorIndexRouteImport } from './routes/admin/editor/index'
@@ -27,9 +29,19 @@ const SpellsRoute = SpellsRouteImport.update({
   path: '/spells',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuestsRoute = QuestsRouteImport.update({
+  id: '/quests',
+  path: '/quests',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PotionsRoute = PotionsRouteImport.update({
   id: '/potions',
   path: '/potions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaboratoryRoute = LaboratoryRouteImport.update({
+  id: '/laboratory',
+  path: '/laboratory',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -55,7 +67,9 @@ const AdminEditorPageIdRoute = AdminEditorPageIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/laboratory': typeof LaboratoryRoute
   '/potions': typeof PotionsRoute
+  '/quests': typeof QuestsRoute
   '/spells': typeof SpellsRoute
   '/trash': typeof TrashRoute
   '/grimoire/': typeof GrimoireIndexRoute
@@ -64,7 +78,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/laboratory': typeof LaboratoryRoute
   '/potions': typeof PotionsRoute
+  '/quests': typeof QuestsRoute
   '/spells': typeof SpellsRoute
   '/trash': typeof TrashRoute
   '/grimoire': typeof GrimoireIndexRoute
@@ -74,7 +90,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/laboratory': typeof LaboratoryRoute
   '/potions': typeof PotionsRoute
+  '/quests': typeof QuestsRoute
   '/spells': typeof SpellsRoute
   '/trash': typeof TrashRoute
   '/grimoire/': typeof GrimoireIndexRoute
@@ -85,7 +103,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/laboratory'
     | '/potions'
+    | '/quests'
     | '/spells'
     | '/trash'
     | '/grimoire/'
@@ -94,7 +114,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/laboratory'
     | '/potions'
+    | '/quests'
     | '/spells'
     | '/trash'
     | '/grimoire'
@@ -103,7 +125,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/laboratory'
     | '/potions'
+    | '/quests'
     | '/spells'
     | '/trash'
     | '/grimoire/'
@@ -113,7 +137,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LaboratoryRoute: typeof LaboratoryRoute
   PotionsRoute: typeof PotionsRoute
+  QuestsRoute: typeof QuestsRoute
   SpellsRoute: typeof SpellsRoute
   TrashRoute: typeof TrashRoute
   GrimoireIndexRoute: typeof GrimoireIndexRoute
@@ -137,11 +163,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpellsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quests': {
+      id: '/quests'
+      path: '/quests'
+      fullPath: '/quests'
+      preLoaderRoute: typeof QuestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/potions': {
       id: '/potions'
       path: '/potions'
       fullPath: '/potions'
       preLoaderRoute: typeof PotionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/laboratory': {
+      id: '/laboratory'
+      path: '/laboratory'
+      fullPath: '/laboratory'
+      preLoaderRoute: typeof LaboratoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -177,7 +217,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LaboratoryRoute: LaboratoryRoute,
   PotionsRoute: PotionsRoute,
+  QuestsRoute: QuestsRoute,
   SpellsRoute: SpellsRoute,
   TrashRoute: TrashRoute,
   GrimoireIndexRoute: GrimoireIndexRoute,

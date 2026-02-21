@@ -5,7 +5,10 @@ import {
   getSkills,
   getSpells,
   getTools,
-  getTrash
+  getTrash,
+  getSkillTree,
+  getQuestLog,
+  getLaboratory
 } from '../services/content.service.js'
 
 const content = new Hono()
@@ -61,6 +64,33 @@ content.get('/trash', async (c) => {
     return c.json(data)
   } catch (error) {
     return c.json({ error: 'Failed to fetch trash' }, 500)
+  }
+})
+
+content.get('/skill-tree', async (c) => {
+  try {
+    const data = await getSkillTree()
+    return c.json(data)
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch skill tree' }, 500)
+  }
+})
+
+content.get('/quest-log', async (c) => {
+  try {
+    const data = await getQuestLog()
+    return c.json(data)
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch quest log' }, 500)
+  }
+})
+
+content.get('/laboratory', async (c) => {
+  try {
+    const data = await getLaboratory()
+    return c.json(data)
+  } catch (error) {
+    return c.json({ error: 'Failed to fetch laboratory' }, 500)
   }
 })
 

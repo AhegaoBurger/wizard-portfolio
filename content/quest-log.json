@@ -1,0 +1,44 @@
+{
+  "activeQuests": [
+    {
+      "id": "ml-path",
+      "name": "ML Engineer Path",
+      "description": "Building expertise in machine learning fundamentals — neural networks, computer vision, and deep learning with PyTorch.",
+      "objectives": ["PyTorch fundamentals", "Neural network architectures", "Computer Vision basics", "Model training & evaluation"],
+      "progress": 30,
+      "startDate": "2025-01"
+    },
+    {
+      "id": "robotics-foundations",
+      "name": "Robotics Foundations",
+      "description": "Learning ROS2, simulation environments, and control theory for robotic systems.",
+      "objectives": ["ROS2 pub/sub & services", "Gazebo simulation", "Basic control theory", "URDF modeling"],
+      "progress": 15,
+      "startDate": "2025-06"
+    }
+  ],
+  "completedQuests": [
+    {
+      "id": "fullstack-mastery",
+      "name": "Full Stack Engineer",
+      "description": "Built production systems across the full stack — from React frontends to Node.js backends with real-time data pipelines.",
+      "achievements": [
+        "Shipped multiple production trading platforms",
+        "Built real-time WebSocket data systems",
+        "Designed and deployed REST and GraphQL APIs"
+      ],
+      "period": "2022–2024"
+    },
+    {
+      "id": "crypto-security",
+      "name": "Cryptography & Security",
+      "description": "Deep dive into applied cryptography — end-to-end encryption, identity-based encryption, and decentralized key management.",
+      "achievements": [
+        "Implemented E2E encrypted file sharing with VetKD",
+        "Built multi-canister Rust architecture on Internet Computer",
+        "Designed decentralized key management systems"
+      ],
+      "period": "2023–2024"
+    }
+  ]
+}

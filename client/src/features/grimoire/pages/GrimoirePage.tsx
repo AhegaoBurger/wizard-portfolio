@@ -11,6 +11,99 @@ import { useIsMobile } from "@/shared/hooks/use-mobile";
 import { useProjects } from "@/features/grimoire/api/grimoire.hooks";
 import type { Project } from "@shared/types";
 
+function DifficultyIndicator({ level }: { level: number }) {
+  return (
+    <div className="flex gap-px">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <div
+          key={i}
+          className={`w-2.5 h-2.5 ${i < level ? "bg-white" : "border border-white/30"}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+function TechTags({ tech }: { tech: string[] }) {
+  return (
+    <div className="flex flex-wrap gap-1">
+      {tech.map((t) => (
+        <span key={t} className="border border-white/50 px-1 text-xs text-white/80">
+          {t}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function ProjectDetails({ project }: { project: Project }) {
+  return (
+    <div className="p-2">
+      <div className="mb-3 border border-white p-2">
+        <div className="flex justify-between mb-2">
+          <span className="text-white text-sm font-bold">Type:</span>
+          <span className="text-white text-sm">{project.type}</span>
+        </div>
+        {project.difficulty && (
+          <div className="flex justify-between mb-2">
+            <span className="text-white text-sm font-bold">Difficulty:</span>
+            <DifficultyIndicator level={project.difficulty} />
+          </div>
+        )}
+        <div className="flex justify-between mb-2">
+          <span className="text-white text-sm font-bold">Status:</span>
+          <span className="text-white text-sm">
+            {project.completion === 100 ? "Complete" : "In Progress"}
+          </span>
+        </div>
+        <div className="w-full h-4 border border-white flex">
+          <div className="h-full bg-pattern-checker" style={{ width: `${project.completion}%` }} />
+        </div>
+      </div>
+
+      {project.tech && project.tech.length > 0 && (
+        <div className="mb-3">
+          <div className="text-white text-sm font-bold mb-1">Tech:</div>
+          <TechTags tech={project.tech} />
+        </div>
+      )}
+
+      {project.challenge && (
+        <div className="mb-3">
+          <div className="text-white text-sm font-bold mb-1">Challenge:</div>
+          <p className="text-white text-xs border border-white p-2">{project.challenge}</p>
+        </div>
+      )}
+
+      {project.approach && (
+        <div className="mb-3">
+          <div className="text-white text-sm font-bold mb-1">Approach:</div>
+          <p className="text-white text-xs border border-white p-2">{project.approach}</p>
+        </div>
+      )}
+
+      {project.outcome && (
+        <div className="mb-3">
+          <div className="text-white text-sm font-bold mb-1">Outcome:</div>
+          <p className="text-white text-xs border border-white p-2">{project.outcome}</p>
+        </div>
+      )}
+
+      <div className="mb-3">
+        <div className="text-white text-sm font-bold mb-1">Features:</div>
+        <div className="border border-white p-2">
+          {project.features.map((feature, index) => (
+            <div key={index} className="flex items-start mb-1 last:mb-0">
+              <div className="w-3 h-3 border border-white mr-2 mt-px" />
+              <span className="text-white text-xs">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function GrimoirePage() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
@@ -53,8 +146,8 @@ export default function GrimoirePage() {
     const projectListContent = (
       <div className="flex flex-col gap-2">
         <div className="border border-white p-2 mb-2">
-          <h2 className="text-heading text-center mb-2">MAGICAL PROJECTS</h2>
-          <p className="text-white text-xs text-center">Tap projects to view details</p>
+          <h2 className="text-heading text-center mb-2">PROJECT GRIMOIRE</h2>
+          <p className="text-white text-xs text-center">Tap projects to view engineering details</p>
         </div>
         <div className="flex-1 overflow-auto">
           {projects.map((project, index) => (
@@ -70,9 +163,12 @@ export default function GrimoirePage() {
                   <div className="border border-white px-1 text-xs bg-white text-black">DONE</div>
                 )}
               </div>
-              <p className="text-white text-xs mb-2">{project.type}</p>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-white text-xs">{project.type}</span>
+                {project.difficulty && <DifficultyIndicator level={project.difficulty} />}
+              </div>
               <div className="w-full h-4 border border-white flex">
-                <div className="h-full bg-pattern-checker" style={{ width: `${project.completion}%` }}></div>
+                <div className="h-full bg-pattern-checker" style={{ width: `${project.completion}%` }} />
               </div>
             </motion.div>
           ))}
@@ -81,38 +177,7 @@ export default function GrimoirePage() {
     );
 
     const projectDetailsContent = selectedProject ? (
-      <div className="p-2">
-        <div className="mb-4 border border-white p-2">
-          <div className="flex justify-between mb-2">
-            <span className="text-white text-sm font-bold">Type:</span>
-            <span className="text-white text-sm">{selectedProject.type}</span>
-          </div>
-          <div className="flex justify-between mb-2">
-            <span className="text-white text-sm font-bold">Status:</span>
-            <span className="text-white text-sm">
-              {selectedProject.completion === 100 ? "Complete" : "In Progress"}
-            </span>
-          </div>
-          <div className="w-full h-4 border border-white flex">
-            <div className="h-full bg-pattern-checker" style={{ width: `${selectedProject.completion}%` }}></div>
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="text-white text-sm font-bold mb-1">Description:</div>
-          <p className="text-white text-xs border border-white p-2">{selectedProject.description}</p>
-        </div>
-        <div className="mb-4">
-          <div className="text-white text-sm font-bold mb-1">Features:</div>
-          <div className="border border-white p-2">
-            {selectedProject.features.map((feature, index) => (
-              <div key={index} className="flex items-start mb-1 last:mb-0">
-                <div className="w-3 h-3 border border-white mr-2 mt-px"></div>
-                <span className="text-white text-xs">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <ProjectDetails project={selectedProject} />
     ) : (
       <div className="flex items-center justify-center h-full">
         <p className="text-white text-center">Select a project to view details</p>
@@ -145,7 +210,7 @@ export default function GrimoirePage() {
             <Window title="Project_Grimoire" width="w-80" height="h-96" x="left-4" y="top-4">
               <div className="flex flex-col gap-2 h-full">
                 <div className="border border-white p-2 mb-2">
-                  <h2 className="text-heading text-center mb-2">MAGICAL PROJECTS</h2>
+                  <h2 className="text-heading text-center mb-2">PROJECT GRIMOIRE</h2>
                   <p className="text-white text-xs text-center">Hover over projects to see magic particles</p>
                 </div>
                 <div className="flex-1 overflow-auto">
@@ -165,9 +230,12 @@ export default function GrimoirePage() {
                           <div className="border border-white px-1 text-xs bg-white text-black">DONE</div>
                         )}
                       </div>
-                      <p className="text-white text-xs mb-2">{project.type}</p>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-white text-xs">{project.type}</span>
+                        {project.difficulty && <DifficultyIndicator level={project.difficulty} />}
+                      </div>
                       <div className="w-full h-4 border border-white flex">
-                        <div className="h-full bg-pattern-checker" style={{ width: `${project.completion}%` }}></div>
+                        <div className="h-full bg-pattern-checker" style={{ width: `${project.completion}%` }} />
                       </div>
                       <ParticleEffect active={hoveredProject === index} />
                     </motion.div>
@@ -184,39 +252,8 @@ export default function GrimoirePage() {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Window title={`Project: ${selectedProject.name}`} width="w-80" height="h-auto" x="right-4" y="top-4">
-                <div className="p-2">
-                  <div className="mb-4 border border-white p-2">
-                    <div className="flex justify-between mb-2">
-                      <span className="text-white text-sm font-bold">Type:</span>
-                      <span className="text-white text-sm">{selectedProject.type}</span>
-                    </div>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-white text-sm font-bold">Status:</span>
-                      <span className="text-white text-sm">
-                        {selectedProject.completion === 100 ? "Complete" : "In Progress"}
-                      </span>
-                    </div>
-                    <div className="w-full h-4 border border-white flex">
-                      <div className="h-full bg-pattern-checker" style={{ width: `${selectedProject.completion}%` }}></div>
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <div className="text-white text-sm font-bold mb-1">Description:</div>
-                    <p className="text-white text-xs border border-white p-2">{selectedProject.description}</p>
-                  </div>
-                  <div className="mb-4">
-                    <div className="text-white text-sm font-bold mb-1">Features:</div>
-                    <div className="border border-white p-2">
-                      {selectedProject.features.map((feature, index) => (
-                        <div key={index} className="flex items-start mb-1 last:mb-0">
-                          <div className="w-3 h-3 border border-white mr-2 mt-px"></div>
-                          <span className="text-white text-xs">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <Window title={`Project: ${selectedProject.name}`} width="w-96" height="h-auto" x="right-4" y="top-4">
+                <ProjectDetails project={selectedProject} />
               </Window>
             </motion.div>
           )}
@@ -240,7 +277,7 @@ export default function GrimoirePage() {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <div className={`w-4 h-4 border border-white ${isClicking ? "bg-white" : ""}`}></div>
+            <div className={`w-4 h-4 border border-white ${isClicking ? "bg-white" : ""}`} />
           </div>
         </motion.div>
       </AnimatePresence>

@@ -1,0 +1,181 @@
+{
+  "nodes": [
+    {
+      "id": "python",
+      "name": "Python",
+      "level": "proficient",
+      "branch": "Core",
+      "description": "Core language for ML, robotics, and automation. Used across all engineering domains.",
+      "x": 25,
+      "y": 6
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "level": "mastered",
+      "branch": "Core",
+      "description": "Primary language for frontend and backend systems. Full-stack type safety.",
+      "x": 70,
+      "y": 6
+    },
+    {
+      "id": "ros2",
+      "name": "ROS2",
+      "level": "learning",
+      "branch": "Robotics",
+      "description": "Robot Operating System 2 — middleware for robotics applications, pub/sub architecture.",
+      "x": 10,
+      "y": 28
+    },
+    {
+      "id": "pytorch",
+      "name": "PyTorch",
+      "level": "learning",
+      "branch": "ML/AI",
+      "description": "Deep learning framework for building and training neural networks.",
+      "x": 35,
+      "y": 28
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "level": "mastered",
+      "branch": "Systems",
+      "description": "Component-based UI framework. Extensive production experience with React 19.",
+      "x": 62,
+      "y": 28
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "level": "mastered",
+      "branch": "Systems",
+      "description": "Server-side JavaScript runtime. Built APIs, real-time systems, and tooling.",
+      "x": 80,
+      "y": 28
+    },
+    {
+      "id": "gazebo",
+      "name": "Gazebo",
+      "level": "planned",
+      "branch": "Robotics",
+      "description": "3D robotics simulator for testing control policies in virtual environments.",
+      "x": 5,
+      "y": 50
+    },
+    {
+      "id": "control",
+      "name": "Control",
+      "level": "learning",
+      "branch": "Robotics",
+      "description": "Control theory — PID, trajectory planning, and motion control for robotic systems.",
+      "x": 18,
+      "y": 50
+    },
+    {
+      "id": "neural-nets",
+      "name": "Neural Nets",
+      "level": "learning",
+      "branch": "ML/AI",
+      "description": "Architectures: CNNs, RNNs, Transformers. Training, optimization, and deployment.",
+      "x": 35,
+      "y": 50
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "level": "proficient",
+      "branch": "Systems",
+      "description": "Systems programming. Used for blockchain canisters and performance-critical code.",
+      "x": 62,
+      "y": 50
+    },
+    {
+      "id": "databases",
+      "name": "Databases",
+      "level": "proficient",
+      "branch": "Systems",
+      "description": "SQL, SQLite, PostgreSQL. Schema design, query optimization, migrations.",
+      "x": 80,
+      "y": 50
+    },
+    {
+      "id": "navigation",
+      "name": "Navigation",
+      "level": "planned",
+      "branch": "Robotics",
+      "description": "Autonomous navigation — SLAM, path planning, obstacle avoidance.",
+      "x": 5,
+      "y": 72
+    },
+    {
+      "id": "perception",
+      "name": "Perception",
+      "level": "planned",
+      "branch": "Robotics",
+      "description": "Sensor processing — LiDAR, cameras, point clouds for environment understanding.",
+      "x": 18,
+      "y": 72
+    },
+    {
+      "id": "cv",
+      "name": "CV",
+      "level": "learning",
+      "branch": "ML/AI",
+      "description": "Computer Vision — object detection, segmentation, image classification.",
+      "x": 32,
+      "y": 72
+    },
+    {
+      "id": "rl",
+      "name": "RL",
+      "level": "planned",
+      "branch": "ML/AI",
+      "description": "Reinforcement Learning — policy optimization, reward shaping, sim-to-real transfer.",
+      "x": 42,
+      "y": 72
+    },
+    {
+      "id": "crypto",
+      "name": "Crypto",
+      "level": "mastered",
+      "branch": "Systems",
+      "description": "Cryptography and blockchain — E2E encryption, smart contracts, decentralized systems.",
+      "x": 62,
+      "y": 72
+    },
+    {
+      "id": "robot-learning",
+      "name": "Robot Learning",
+      "level": "planned",
+      "branch": "Convergence",
+      "description": "Where ML meets Robotics — learned control policies, sim-to-real, manipulation.",
+      "x": 25,
+      "y": 92
+    }
+  ],
+  "connections": [
+    { "from": "python", "to": "ros2" },
+    { "from": "python", "to": "pytorch" },
+    { "from": "typescript", "to": "react" },
+    { "from": "typescript", "to": "nodejs" },
+    { "from": "ros2", "to": "gazebo" },
+    { "from": "ros2", "to": "control" },
+    { "from": "pytorch", "to": "neural-nets" },
+    { "from": "react", "to": "rust" },
+    { "from": "nodejs", "to": "databases" },
+    { "from": "gazebo", "to": "navigation" },
+    { "from": "control", "to": "perception" },
+    { "from": "neural-nets", "to": "cv" },
+    { "from": "neural-nets", "to": "rl" },
+    { "from": "rust", "to": "crypto" },
+    { "from": "cv", "to": "perception", "dashed": true },
+    { "from": "rl", "to": "robot-learning", "dashed": true },
+    { "from": "perception", "to": "robot-learning", "dashed": true }
+  ],
+  "branches": [
+    { "name": "ROBOTICS", "x": 2, "y": 18 },
+    { "name": "ML / AI", "x": 30, "y": 18 },
+    { "name": "SYSTEMS", "x": 65, "y": 18 }
+  ]
+}

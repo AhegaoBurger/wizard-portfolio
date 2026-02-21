@@ -1,0 +1,43 @@
+{
+  "experiments": [
+    {
+      "id": "gazebo-sim",
+      "name": "Robot Arm Control",
+      "description": "Training a policy to grasp objects in simulation using reinforcement learning and transferring to a physical robot arm.",
+      "status": "planned",
+      "tech": ["ROS2", "Gazebo", "Python", "PyTorch"],
+      "progress": 0
+    },
+    {
+      "id": "cv-pipeline",
+      "name": "Object Detection Pipeline",
+      "description": "Building a real-time object detection system using YOLO architecture, from data labeling to model deployment.",
+      "status": "in-progress",
+      "tech": ["Python", "PyTorch", "OpenCV"],
+      "progress": 25
+    }
+  ],
+  "studies": [
+    {
+      "id": "pytorch-course",
+      "name": "Deep Learning with PyTorch",
+      "type": "course",
+      "status": "in-progress",
+      "progress": 60
+    },
+    {
+      "id": "ros2-docs",
+      "name": "ROS2 Humble Documentation",
+      "type": "tutorial",
+      "status": "in-progress",
+      "progress": 35
+    },
+    {
+      "id": "sutton-barto",
+      "name": "Reinforcement Learning (Sutton & Barto)",
+      "type": "book",
+      "status": "planned",
+      "progress": 0
+    }
+  ]
+}
