@@ -4,7 +4,6 @@ import { useNavigate } from "@tanstack/react-router";
 import TabBar from "@/shared/components/navigation/tab-bar";
 import MobileWindow from "@/shared/components/layout/mobile-window";
 import Clock from "@/shared/components/navigation/clock";
-import ManaBar from "@/shared/components/navigation/mana-bar";
 
 interface MobileLayoutProps {
   windows: {
@@ -42,7 +41,7 @@ export default function MobileLayout({ windows }: MobileLayoutProps) {
         >
           HOME
         </button>
-        <ManaBar mobile />
+        <span className="text-white text-xs font-pixel glow-text">WIZARD OS</span>
       </div>
 
       <TabBar

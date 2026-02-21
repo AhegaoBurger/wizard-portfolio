@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from '@tanstack/react-router'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Window from '@/shared/components/layout/window'
-import Clock from '@/shared/components/navigation/clock'
-import BackButton from '@/shared/components/navigation/back-button'
-import ManaBar from '@/shared/components/navigation/mana-bar'
+import PageShell from '@/shared/components/layout/page-shell'
+import LoadingScreen from '@/shared/components/layout/loading-screen'
 import MobileLayout from '@/shared/components/layout/mobile-layout'
 import { useIsMobile } from '@/shared/hooks/use-mobile'
 import { useSkillTree } from '@/features/spellbook/api/spellbook.hooks'
@@ -13,34 +11,12 @@ import SkillDetails from '@/features/spellbook/components/skill-details'
 import type { SkillNode } from '@shared/types'
 
 export default function SpellbookPage() {
-  const navigate = useNavigate()
   const isMobile = useIsMobile()
   const { nodes, connections, branches, loading } = useSkillTree()
   const [selectedNode, setSelectedNode] = useState<SkillNode | null>(null)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-  const [isClicking, setIsClicking] = useState(false)
-
-  useEffect(() => {
-    if (isMobile) return
-    const handleMouseMove = (e: MouseEvent) => setCursorPosition({ x: e.clientX, y: e.clientY })
-    const handleMouseDown = () => setIsClicking(true)
-    const handleMouseUp = () => setIsClicking(false)
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mousedown', handleMouseDown)
-    window.addEventListener('mouseup', handleMouseUp)
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mousedown', handleMouseDown)
-      window.removeEventListener('mouseup', handleMouseUp)
-    }
-  }, [isMobile])
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-black text-white font-pixel flex items-center justify-center">
-        <div className="text-xl glow-text animate-flicker">Loading...</div>
-      </div>
-    )
+    return <LoadingScreen />
   }
 
   if (isMobile) {
@@ -98,54 +74,22 @@ export default function SpellbookPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black p-4 font-pixel overflow-hidden relative">
-      <ManaBar />
-      <AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+    <PageShell>
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.3 }}
+      >
+        <Window
+          title="Spellbook_—_Skill_Tree"
+          width="w-[calc(100%-2rem)]"
+          height="h-[calc(100vh-6rem)]"
+          x="left-4"
+          y="top-4"
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.3 }}
-          >
-            <Window
-              title="Spellbook_—_Skill_Tree"
-              width="w-[calc(100%-2rem)]"
-              height="h-[calc(100vh-6rem)]"
-              x="left-4"
-              y="top-4"
-            >
-              <SkillTree nodes={nodes} connections={connections} branches={branches} />
-            </Window>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}
-            className="fixed bottom-4 right-4"
-          >
-            <BackButton onClickAction={() => navigate({ to: '/' })} />
-          </motion.div>
-
-          <Clock />
-
-          <div
-            className="fixed pointer-events-none z-50"
-            style={{
-              left: `${cursorPosition.x}px`,
-              top: `${cursorPosition.y}px`,
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            <div className={`w-4 h-4 border border-white ${isClicking ? 'bg-white' : ''}`} />
-          </div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
+          <SkillTree nodes={nodes} connections={connections} branches={branches} />
+        </Window>
+      </motion.div>
+    </PageShell>
   )
 }

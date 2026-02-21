@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from '@tanstack/react-router'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Window from '@/shared/components/layout/window'
-import Clock from '@/shared/components/navigation/clock'
-import BackButton from '@/shared/components/navigation/back-button'
-import ManaBar from '@/shared/components/navigation/mana-bar'
+import PageShell from '@/shared/components/layout/page-shell'
+import LoadingScreen from '@/shared/components/layout/loading-screen'
 import MobileLayout from '@/shared/components/layout/mobile-layout'
 import { useIsMobile } from '@/shared/hooks/use-mobile'
 import { useQuestLog } from '@/features/quest-log/api/quest-log.hooks'
@@ -15,34 +13,12 @@ type SelectedQuest =
   | { type: 'completed'; quest: CompletedQuest }
 
 export default function QuestLogPage() {
-  const navigate = useNavigate()
   const isMobile = useIsMobile()
   const { activeQuests, completedQuests, loading } = useQuestLog()
   const [selected, setSelected] = useState<SelectedQuest | null>(null)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-  const [isClicking, setIsClicking] = useState(false)
-
-  useEffect(() => {
-    if (isMobile) return
-    const handleMouseMove = (e: MouseEvent) => setCursorPosition({ x: e.clientX, y: e.clientY })
-    const handleMouseDown = () => setIsClicking(true)
-    const handleMouseUp = () => setIsClicking(false)
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mousedown', handleMouseDown)
-    window.addEventListener('mouseup', handleMouseUp)
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mousedown', handleMouseDown)
-      window.removeEventListener('mouseup', handleMouseUp)
-    }
-  }, [isMobile])
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-black text-white font-pixel flex items-center justify-center">
-        <div className="text-xl glow-text animate-flicker">Loading...</div>
-      </div>
-    )
+    return <LoadingScreen />
   }
 
   const questListContent = (
@@ -179,60 +155,28 @@ export default function QuestLogPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black p-4 font-pixel overflow-hidden relative">
-      <ManaBar />
-      <AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.3 }}
-          >
-            <Window title="Quest_Log" width="w-80" height="h-96" x="left-4" y="top-4">
-              <div className="h-full overflow-auto">
-                {questListContent}
-              </div>
-            </Window>
-          </motion.div>
-
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.3 }}
-          >
-            <Window title="Quest_Details" width="w-80" height="h-auto" x="right-4" y="top-4">
-              {questDetailsContent}
-            </Window>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}
-            className="fixed bottom-4 right-4"
-          >
-            <BackButton onClickAction={() => navigate({ to: '/' })} />
-          </motion.div>
-
-          <Clock />
-
-          <div
-            className="fixed pointer-events-none z-50"
-            style={{
-              left: `${cursorPosition.x}px`,
-              top: `${cursorPosition.y}px`,
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            <div className={`w-4 h-4 border border-white ${isClicking ? 'bg-white' : ''}`} />
+    <PageShell>
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.3 }}
+      >
+        <Window title="Quest_Log" width="w-80" height="h-96" x="left-4" y="top-4">
+          <div className="h-full overflow-auto">
+            {questListContent}
           </div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
+        </Window>
+      </motion.div>
+
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.3 }}
+      >
+        <Window title="Quest_Details" width="w-80" height="h-auto" x="right-4" y="top-4">
+          {questDetailsContent}
+        </Window>
+      </motion.div>
+    </PageShell>
   )
 }
