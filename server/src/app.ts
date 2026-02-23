@@ -9,8 +9,8 @@ const app = new Hono()
 // Middleware
 app.use('*', logger())
 app.use('*', cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
-  credentials: true,
+  origin: process.env.CLIENT_URL || '*',
+  credentials: !!(process.env.CLIENT_URL),
 }))
 
 // API Routes (portable — no Bun-specific dependencies)
