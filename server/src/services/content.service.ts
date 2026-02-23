@@ -1,5 +1,6 @@
 import { readFile } from 'fs/promises'
-import { join, resolve } from 'path'
+import { join, resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
 import type {
   Profile,
   ProjectsData,
@@ -13,7 +14,8 @@ import type {
 } from '../../../shared/types/index.js'
 
 // Resolve project root from this file's location (server/src/services/)
-const PROJECT_ROOT = resolve(import.meta.dir, '..', '..', '..')
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const PROJECT_ROOT = resolve(__dirname, '..', '..', '..')
 const CONTENT_DIR = join(PROJECT_ROOT, 'content')
 
 // Simple in-memory cache

@@ -1,9 +1,11 @@
 import { readFileSync, readdirSync } from 'fs'
-import { join, resolve } from 'path'
+import { join, resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
 import { getDB } from './database.js'
 
 // Resolve project root from this file's location (server/src/db/)
-const PROJECT_ROOT = resolve(import.meta.dir, '..', '..', '..')
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const PROJECT_ROOT = resolve(__dirname, '..', '..', '..')
 const PAGES_DIR = join(PROJECT_ROOT, 'content', 'pages')
 
 interface PageDefinition {

@@ -1,0 +1,13 @@
+{
+  "buildCommand": "cd client && bun run build",
+  "outputDirectory": "dist/client",
+  "framework": null,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ],
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "content/**,server/src/**,shared/**"
+    }
+  }
+}
