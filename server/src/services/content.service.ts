@@ -10,16 +10,16 @@ import type {
   LaboratoryData
 } from '../../../shared/types/index.js'
 
-// Static JSON imports with type attributes — required by NodeNext (Vercel's TS/Node.js 20+)
-import profileData from '../../../content/profile.json' with { type: 'json' }
-import projectsData from '../../../content/projects.json' with { type: 'json' }
-import skillsData from '../../../content/skills.json' with { type: 'json' }
-import spellsData from '../../../content/spells.json' with { type: 'json' }
-import toolsData from '../../../content/tools.json' with { type: 'json' }
-import trashData from '../../../content/trash.json' with { type: 'json' }
-import skillTreeData from '../../../content/skill-tree.json' with { type: 'json' }
-import questLogData from '../../../content/quest-log.json' with { type: 'json' }
-import laboratoryData from '../../../content/laboratory.json' with { type: 'json' }
+// Static JSON imports — bundled by esbuild/Vercel, works with Bun locally
+import profileData from '../../../content/profile.json'
+import projectsData from '../../../content/projects.json'
+import skillsData from '../../../content/skills.json'
+import spellsData from '../../../content/spells.json'
+import toolsData from '../../../content/tools.json'
+import trashData from '../../../content/trash.json'
+import skillTreeData from '../../../content/skill-tree.json'
+import questLogData from '../../../content/quest-log.json'
+import laboratoryData from '../../../content/laboratory.json'
 
 export const getProfile = () => profileData as Profile
 export const getProjects = () => projectsData as ProjectsData

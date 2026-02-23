@@ -1,9 +1,9 @@
-// Static JSON imports with type attributes — required by NodeNext (Vercel's TS/Node.js 20+)
-import homePageDef from '../../../content/pages/home.json' with { type: 'json' }
-import grimoirePageDef from '../../../content/pages/grimoire.json' with { type: 'json' }
-import spellsPageDef from '../../../content/pages/spells.json' with { type: 'json' }
-import potionsPageDef from '../../../content/pages/potions.json' with { type: 'json' }
-import trashPageDef from '../../../content/pages/trash.json' with { type: 'json' }
+// Static JSON imports — bundled by esbuild/Vercel, works with Bun locally
+import homePageDef from '../../../content/pages/home.json'
+import grimoirePageDef from '../../../content/pages/grimoire.json'
+import spellsPageDef from '../../../content/pages/spells.json'
+import potionsPageDef from '../../../content/pages/potions.json'
+import trashPageDef from '../../../content/pages/trash.json'
 
 interface PageDefinition {
   meta: { id: string; route: string; title: string }
