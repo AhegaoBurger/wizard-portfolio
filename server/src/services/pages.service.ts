@@ -1,9 +1,9 @@
 // Static JSON imports — bundler always includes these, works reliably on Vercel
-import homePageDef from '../../../content/pages/home.json'
-import grimoirePageDef from '../../../content/pages/grimoire.json'
-import spellsPageDef from '../../../content/pages/spells.json'
-import potionsPageDef from '../../../content/pages/potions.json'
-import trashPageDef from '../../../content/pages/trash.json'
+import homePageDef from '../../../content/pages/home.json' with { type: 'json' }
+import grimoirePageDef from '../../../content/pages/grimoire.json' with { type: 'json' }
+import spellsPageDef from '../../../content/pages/spells.json' with { type: 'json' }
+import potionsPageDef from '../../../content/pages/potions.json' with { type: 'json' }
+import trashPageDef from '../../../content/pages/trash.json' with { type: 'json' }
 
 interface PageDefinition {
   meta: { id: string; route: string; title: string }
