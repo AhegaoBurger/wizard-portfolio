@@ -104,7 +104,7 @@ export default function HomePage() {
       <div className="min-h-screen bg-black overflow-hidden">
         <MobileLayout windows={windows} />
 
-        <div className="fixed bottom-16 right-4 flex flex-col items-center gap-4 z-40">
+        <div className="fixed bottom-16 left-1/2 -translate-x-1/2 flex flex-row items-center gap-4 z-40">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -315,7 +315,7 @@ export default function HomePage() {
               </AnimatePresence>
 
               {/* Folder Icons */}
-              <div className="fixed bottom-4 right-4 flex flex-col items-center gap-4">
+              <div className="fixed bottom-4 left-1/2 -translate-x-1/2 flex flex-row items-center gap-4">
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}

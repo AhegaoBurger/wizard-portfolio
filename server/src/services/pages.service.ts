@@ -1,9 +1,7 @@
 import { readFileSync, readdirSync } from 'fs'
-import { join, dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const PROJECT_ROOT = resolve(__dirname, '..', '..', '..')
+const PROJECT_ROOT = process.cwd()
 const PAGES_DIR = join(PROJECT_ROOT, 'content', 'pages')
 
 interface PageDefinition {

@@ -1,10 +1,7 @@
 import { Database } from 'bun:sqlite'
-import { join, resolve, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
 
-// Resolve project root from this file's location (server/src/db/)
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const PROJECT_ROOT = resolve(__dirname, '..', '..', '..')
+const PROJECT_ROOT = process.cwd()
 const DB_PATH = join(PROJECT_ROOT, 'data', 'wizard.db')
 
 let db: Database | null = null
