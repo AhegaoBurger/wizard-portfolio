@@ -1,5 +1,3 @@
-import { readFile } from 'fs/promises'
-import { join } from 'path'
 import type {
   Profile,
   ProjectsData,
@@ -12,49 +10,23 @@ import type {
   LaboratoryData
 } from '../../../shared/types/index.js'
 
-const PROJECT_ROOT = process.cwd()
-const CONTENT_DIR = join(PROJECT_ROOT, 'content')
+// Static JSON imports — bundler always includes these, works reliably on Vercel
+import profileData from '../../../content/profile.json'
+import projectsData from '../../../content/projects.json'
+import skillsData from '../../../content/skills.json'
+import spellsData from '../../../content/spells.json'
+import toolsData from '../../../content/tools.json'
+import trashData from '../../../content/trash.json'
+import skillTreeData from '../../../content/skill-tree.json'
+import questLogData from '../../../content/quest-log.json'
+import laboratoryData from '../../../content/laboratory.json'
 
-// Simple in-memory cache
-const cache = new Map<string, any>()
-const CACHE_TTL = process.env.NODE_ENV === 'production' ? 60000 : 0 // 1 min in prod, no cache in dev
-
-async function readJSON<T>(filename: string): Promise<T> {
-  const now = Date.now()
-  const cached = cache.get(filename)
-
-  // Return cached data if available and not expired
-  if (cached && now - cached.timestamp < CACHE_TTL) {
-    return cached.data
-  }
-
-  try {
-    const filepath = join(CONTENT_DIR, filename)
-    const content = await readFile(filepath, 'utf-8')
-    const data = JSON.parse(content) as T
-
-    // Cache the data
-    cache.set(filename, { data, timestamp: now })
-
-    return data
-  } catch (error) {
-    console.error(`Error reading ${filename}:`, error)
-    throw new Error(`Failed to load content: ${filename}`)
-  }
-}
-
-export const getProfile = () => readJSON<Profile>('profile.json')
-export const getProjects = () => readJSON<ProjectsData>('projects.json')
-export const getSkills = () => readJSON<SkillsData>('skills.json')
-export const getSpells = () => readJSON<SpellsData>('spells.json')
-export const getTools = () => readJSON<ToolsData>('tools.json')
-export const getTrash = () => readJSON<TrashData>('trash.json')
-export const getSkillTree = () => readJSON<SkillTreeData>('skill-tree.json')
-export const getQuestLog = () => readJSON<QuestLogData>('quest-log.json')
-export const getLaboratory = () => readJSON<LaboratoryData>('laboratory.json')
-
-// Future DB migration example:
-// export const getProjects = async () => {
-//   const projects = await db.select().from(projectsTable)
-//   return { projects }
-// }
+export const getProfile = () => profileData as Profile
+export const getProjects = () => projectsData as ProjectsData
+export const getSkills = () => skillsData as SkillsData
+export const getSpells = () => spellsData as SpellsData
+export const getTools = () => toolsData as ToolsData
+export const getTrash = () => trashData as TrashData
+export const getSkillTree = () => skillTreeData as SkillTreeData
+export const getQuestLog = () => questLogData as QuestLogData
+export const getLaboratory = () => laboratoryData as LaboratoryData

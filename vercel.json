@@ -7,7 +7,7 @@
   ],
   "functions": {
     "api/index.ts": {
-      "includeFiles": "content/**,server/src/**,shared/**"
+      "includeFiles": ["content/**"]
     }
   }
 }

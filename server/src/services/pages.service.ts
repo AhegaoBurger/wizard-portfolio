@@ -1,8 +1,9 @@
-import { readFileSync, readdirSync } from 'fs'
-import { join } from 'path'
-
-const PROJECT_ROOT = process.cwd()
-const PAGES_DIR = join(PROJECT_ROOT, 'content', 'pages')
+// Static JSON imports — bundler always includes these, works reliably on Vercel
+import homePageDef from '../../../content/pages/home.json'
+import grimoirePageDef from '../../../content/pages/grimoire.json'
+import spellsPageDef from '../../../content/pages/spells.json'
+import potionsPageDef from '../../../content/pages/potions.json'
+import trashPageDef from '../../../content/pages/trash.json'
 
 interface PageDefinition {
   meta: { id: string; route: string; title: string }
@@ -19,48 +20,15 @@ interface PageSummary {
   updated_at: string
 }
 
-// Simple in-memory cache
-let cachedPages: PageDefinition[] | null = null
-let cacheTimestamp = 0
-const CACHE_TTL = process.env.NODE_ENV === 'production' ? 60000 : 0
-
-function loadPages(): PageDefinition[] {
-  const now = Date.now()
-  if (cachedPages && now - cacheTimestamp < CACHE_TTL) {
-    return cachedPages
-  }
-
-  const pages: PageDefinition[] = []
-
-  try {
-    const files = readdirSync(PAGES_DIR).filter(f => f.endsWith('.json'))
-
-    for (const file of files) {
-      try {
-        const content = readFileSync(join(PAGES_DIR, file), 'utf-8')
-        const page = JSON.parse(content) as PageDefinition
-
-        if (!page.meta?.id || !page.meta?.route || !page.meta?.title) {
-          console.warn(`Skipping ${file}: missing required meta fields`)
-          continue
-        }
-
-        pages.push(page)
-      } catch (e) {
-        console.error(`Failed to read page definition ${file}:`, e)
-      }
-    }
-  } catch (e) {
-    console.error('Failed to read pages directory:', e)
-  }
-
-  cachedPages = pages
-  cacheTimestamp = now
-  return pages
-}
+const pages: PageDefinition[] = [
+  homePageDef,
+  grimoirePageDef,
+  spellsPageDef,
+  potionsPageDef,
+  trashPageDef,
+] as PageDefinition[]
 
 export function listPages(): PageSummary[] {
-  const pages = loadPages()
   return pages
     .map(p => ({
       id: p.meta.id,
@@ -73,11 +41,9 @@ export function listPages(): PageSummary[] {
 }
 
 export function getPageById(id: string): PageDefinition | null {
-  const pages = loadPages()
   return pages.find(p => p.meta.id === id) ?? null
 }
 
 export function getPageByRoute(route: string): PageDefinition | null {
-  const pages = loadPages()
   return pages.find(p => p.meta.route === route) ?? null
 }
