@@ -1,10 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
 import DesktopLayout from "@/shared/components/layout/desktop-layout";
-import WizardProfile from "@/features/home/components/wizard-profile";
-import ProjectsWindow from "@/features/home/components/projects-window";
-import SkillsWindow from "@/features/home/components/skills-window";
-import ContactWindow from "@/features/home/components/contact-window";
 import BootSequence from "@/features/home/components/boot-sequence";
 import HeroReveal from "@/features/home/components/hero-reveal";
 import TerminalWindow from "@/features/home/components/terminal-window";
@@ -87,10 +83,10 @@ export default function HomePage() {
     }
 
     const terminalContent = <TerminalWindow mobile />;
-    const profileContent = <WizardProfile />;
-    const projectsContent = <ProjectsWindow />;
-    const skillsContent = <SkillsWindow />;
-    const contactContent = <ContactWindow />;
+    const profileContent = <WizardProfileContent />;
+    const projectsContent = <ProjectsWindowContent />;
+    const skillsContent = <SkillsWindowContent />;
+    const contactContent = <ContactWindowContent />;
 
     const windows = [
       { id: "profile", title: "Wizard_Profile", icon: "W", content: profileContent },
