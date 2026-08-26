@@ -1,6 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { SpellbookPage } from '@/features/spellbook'
+import { SpellsPage } from '@/features/wizard-os/pages/site-pages'
+import { useOS } from '@/features/wizard-os/shell/os-context'
 
 export const Route = createFileRoute('/spells')({
-  component: SpellbookPage,
+  component: Spells,
 })
+
+function Spells() {
+  const os = useOS()
+  return <SpellsPage accent={os.accent} />
+}

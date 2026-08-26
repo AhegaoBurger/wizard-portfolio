@@ -1,9 +1,8 @@
-import { createRootRoute, Outlet } from '@tanstack/react-router'
+import { createRootRoute } from '@tanstack/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import MenuBar from '@/features/home/components/menu-bar'
-import CustomCursor from '@/shared/components/interactive/custom-cursor'
-import { useIsMobile } from '@/shared/hooks/use-mobile'
-import { MenuBarActionsProvider, useMenuBarActions } from '@/features/home/components/menu-bar-context'
+import { WizardOSShell } from '@/features/wizard-os/shell/wizard-os'
+import { DuelPage } from '@/features/wizard-os/pages/site-pages'
+import { useOS } from '@/features/wizard-os/shell/os-context'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,32 +15,20 @@ const queryClient = new QueryClient({
 
 export const Route = createRootRoute({
   component: RootLayout,
+  notFoundComponent: NotFound,
 })
 
+// The whole site lives inside the Wizard OS shell: menu bar, dock, CRT frame.
+// The shell renders <Outlet /> for the active route.
 function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
-      <MenuBarActionsProvider>
-        <div className="ambient-particles">
-          <DesktopMenuBar />
-          <Outlet />
-          <div className="crt-overlay" />
-          <DesktopCursor />
-        </div>
-      </MenuBarActionsProvider>
+      <WizardOSShell />
     </QueryClientProvider>
   )
 }
 
-function DesktopCursor() {
-  const isMobile = useIsMobile()
-  if (isMobile) return null
-  return <CustomCursor />
-}
-
-function DesktopMenuBar() {
-  const isMobile = useIsMobile()
-  const actions = useMenuBarActions()
-  if (isMobile) return null
-  return <MenuBar onReplayBoot={actions.onReplayBoot} onOpenTerminal={actions.onOpenTerminal} />
+function NotFound() {
+  const os = useOS()
+  return <DuelPage accent={os.accent} />
 }

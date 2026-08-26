@@ -20,19 +20,13 @@
 body {
   font-family: "ChicagoFLF", monospace;
   image-rendering: pixelated;
-  background-color: black;
+  background-color: #04110a;
   color: white;
-  cursor: none;
 }
 
-/* Hide default cursor on desktop */
-@media (min-width: 768px) {
-  body { cursor: none; }
-  a, button, [role="button"] { cursor: none; }
-}
-@media (max-width: 767px) {
-  body { cursor: auto; }
-}
+/* The Wizard OS shell does not draw a custom cursor, so the system one has to
+   stay visible. (The previous design hid it and painted its own.) */
+a, button, [role="button"] { cursor: pointer; }
 
 @layer base {
   * {

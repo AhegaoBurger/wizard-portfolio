@@ -9,39 +9,34 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TrashRouteImport } from './routes/trash'
 import { Route as SpellsRouteImport } from './routes/spells'
-import { Route as QuestsRouteImport } from './routes/quests'
-import { Route as PotionsRouteImport } from './routes/potions'
 import { Route as LaboratoryRouteImport } from './routes/laboratory'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as R404RouteImport } from './routes/404'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GrimoireIndexRouteImport } from './routes/grimoire/index'
+import { Route as GrimoireProjectIdRouteImport } from './routes/grimoire/$projectId'
 import { Route as AdminEditorIndexRouteImport } from './routes/admin/editor/index'
 import { Route as AdminEditorPageIdRouteImport } from './routes/admin/editor/$pageId'
 
-const TrashRoute = TrashRouteImport.update({
-  id: '/trash',
-  path: '/trash',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SpellsRoute = SpellsRouteImport.update({
   id: '/spells',
   path: '/spells',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QuestsRoute = QuestsRouteImport.update({
-  id: '/quests',
-  path: '/quests',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PotionsRoute = PotionsRouteImport.update({
-  id: '/potions',
-  path: '/potions',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LaboratoryRoute = LaboratoryRouteImport.update({
   id: '/laboratory',
   path: '/laboratory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R404Route = R404RouteImport.update({
+  id: '/404',
+  path: '/404',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -52,6 +47,11 @@ const IndexRoute = IndexRouteImport.update({
 const GrimoireIndexRoute = GrimoireIndexRouteImport.update({
   id: '/grimoire/',
   path: '/grimoire/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrimoireProjectIdRoute = GrimoireProjectIdRouteImport.update({
+  id: '/grimoire/$projectId',
+  path: '/grimoire/$projectId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminEditorIndexRoute = AdminEditorIndexRouteImport.update({
@@ -67,22 +67,22 @@ const AdminEditorPageIdRoute = AdminEditorPageIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/contact': typeof ContactRoute
   '/laboratory': typeof LaboratoryRoute
-  '/potions': typeof PotionsRoute
-  '/quests': typeof QuestsRoute
   '/spells': typeof SpellsRoute
-  '/trash': typeof TrashRoute
+  '/grimoire/$projectId': typeof GrimoireProjectIdRoute
   '/grimoire/': typeof GrimoireIndexRoute
   '/admin/editor/$pageId': typeof AdminEditorPageIdRoute
   '/admin/editor/': typeof AdminEditorIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/contact': typeof ContactRoute
   '/laboratory': typeof LaboratoryRoute
-  '/potions': typeof PotionsRoute
-  '/quests': typeof QuestsRoute
   '/spells': typeof SpellsRoute
-  '/trash': typeof TrashRoute
+  '/grimoire/$projectId': typeof GrimoireProjectIdRoute
   '/grimoire': typeof GrimoireIndexRoute
   '/admin/editor/$pageId': typeof AdminEditorPageIdRoute
   '/admin/editor': typeof AdminEditorIndexRoute
@@ -90,11 +90,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/contact': typeof ContactRoute
   '/laboratory': typeof LaboratoryRoute
-  '/potions': typeof PotionsRoute
-  '/quests': typeof QuestsRoute
   '/spells': typeof SpellsRoute
-  '/trash': typeof TrashRoute
+  '/grimoire/$projectId': typeof GrimoireProjectIdRoute
   '/grimoire/': typeof GrimoireIndexRoute
   '/admin/editor/$pageId': typeof AdminEditorPageIdRoute
   '/admin/editor/': typeof AdminEditorIndexRoute
@@ -103,33 +103,33 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/404'
+    | '/contact'
     | '/laboratory'
-    | '/potions'
-    | '/quests'
     | '/spells'
-    | '/trash'
+    | '/grimoire/$projectId'
     | '/grimoire/'
     | '/admin/editor/$pageId'
     | '/admin/editor/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/404'
+    | '/contact'
     | '/laboratory'
-    | '/potions'
-    | '/quests'
     | '/spells'
-    | '/trash'
+    | '/grimoire/$projectId'
     | '/grimoire'
     | '/admin/editor/$pageId'
     | '/admin/editor'
   id:
     | '__root__'
     | '/'
+    | '/404'
+    | '/contact'
     | '/laboratory'
-    | '/potions'
-    | '/quests'
     | '/spells'
-    | '/trash'
+    | '/grimoire/$projectId'
     | '/grimoire/'
     | '/admin/editor/$pageId'
     | '/admin/editor/'
@@ -137,11 +137,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R404Route: typeof R404Route
+  ContactRoute: typeof ContactRoute
   LaboratoryRoute: typeof LaboratoryRoute
-  PotionsRoute: typeof PotionsRoute
-  QuestsRoute: typeof QuestsRoute
   SpellsRoute: typeof SpellsRoute
-  TrashRoute: typeof TrashRoute
+  GrimoireProjectIdRoute: typeof GrimoireProjectIdRoute
   GrimoireIndexRoute: typeof GrimoireIndexRoute
   AdminEditorPageIdRoute: typeof AdminEditorPageIdRoute
   AdminEditorIndexRoute: typeof AdminEditorIndexRoute
@@ -149,13 +149,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/trash': {
-      id: '/trash'
-      path: '/trash'
-      fullPath: '/trash'
-      preLoaderRoute: typeof TrashRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/spells': {
       id: '/spells'
       path: '/spells'
@@ -163,25 +156,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpellsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/quests': {
-      id: '/quests'
-      path: '/quests'
-      fullPath: '/quests'
-      preLoaderRoute: typeof QuestsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/potions': {
-      id: '/potions'
-      path: '/potions'
-      fullPath: '/potions'
-      preLoaderRoute: typeof PotionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/laboratory': {
       id: '/laboratory'
       path: '/laboratory'
       fullPath: '/laboratory'
       preLoaderRoute: typeof LaboratoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/404': {
+      id: '/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof R404RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -196,6 +189,13 @@ declare module '@tanstack/react-router' {
       path: '/grimoire'
       fullPath: '/grimoire/'
       preLoaderRoute: typeof GrimoireIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grimoire/$projectId': {
+      id: '/grimoire/$projectId'
+      path: '/grimoire/$projectId'
+      fullPath: '/grimoire/$projectId'
+      preLoaderRoute: typeof GrimoireProjectIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/editor/': {
@@ -217,11 +217,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R404Route: R404Route,
+  ContactRoute: ContactRoute,
   LaboratoryRoute: LaboratoryRoute,
-  PotionsRoute: PotionsRoute,
-  QuestsRoute: QuestsRoute,
   SpellsRoute: SpellsRoute,
-  TrashRoute: TrashRoute,
+  GrimoireProjectIdRoute: GrimoireProjectIdRoute,
   GrimoireIndexRoute: GrimoireIndexRoute,
   AdminEditorPageIdRoute: AdminEditorPageIdRoute,
   AdminEditorIndexRoute: AdminEditorIndexRoute,
