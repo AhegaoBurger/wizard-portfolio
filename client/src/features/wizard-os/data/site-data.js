@@ -17,7 +17,7 @@ export const PROFILE = {
   name: 'ARTUR SHIROKOV',
   role: 'APPLIED AI ENGINEER',
   tagline: 'I build the AI system and own the customer conversation for it.',
-  location: 'LISBON → ISRAEL',
+  location: 'LISBON · REMOTE',
   email: 'artur.wiseman@icloud.com',
   links: [
     ['GITHUB', 'https://github.com/ArturShirokov'],
@@ -33,7 +33,7 @@ export const PROFILE = {
   blurb: 'Self-taught full-stack engineer. Three years shipping production systems against '
     + 'live third-party APIs, most recently LLM agents and the Model Context Protocol. '
     + 'Authored HTTP transport for MCP servers in Zed, merged upstream by a core maintainer. '
-    + 'Co-founded a grant-funded storage startup and shipped its MVP. Relocating to Israel.',
+    + 'Co-founded a grant-funded storage startup and shipped its MVP.',
 };
 
 // scene: mcp | approval | hebrew | vision | optionsarb

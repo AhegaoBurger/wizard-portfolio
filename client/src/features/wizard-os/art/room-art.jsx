@@ -548,7 +548,7 @@ export const ROOMS = {
       { id: 'fire', x: 6, y: 24, w: 50, h: 80, label: 'Hearth', scene: 'cauldron', pal: 'amber', title: 'THE EVERWARM HEARTH', body: 'Never goes out. Neither does the build, if you did the eval design properly the first time.' },
       { id: 'cat', x: 44, y: 122, w: 30, h: 18, label: 'Murr, the familiar', scene: 'cat', pal: 'amber', title: 'MURR, THE FAMILIAR', body: 'Sleeps 19 hours a day. Occasionally walks across the keyboard and commits straight to main, which is the one habit here I have not managed to break.' },
       { id: 'books', x: 148, y: 14, w: 46, h: 90, label: 'Bookshelf', scene: 'terminal', pal: 'green', title: 'THE STACKS', body: 'The MCP specification, the Rust book with a broken spine, a Hebrew grammar I am still losing to, and one volume that is entirely about why your rate limiter should count attempts and not successes.', action: 'spells' },
-      { id: 'window', x: 88, y: 8, w: 48, h: 48, label: 'Moonlit window', scene: 'crystalBall', pal: 'violet', title: 'MOONLIT WINDOW', body: 'Lisbon out there for now. Israel on arrival — the paperwork is further along than the Hebrew is.' },
+      { id: 'window', x: 88, y: 8, w: 48, h: 48, label: 'Moonlit window', scene: 'crystalBall', pal: 'violet', title: 'MOONLIT WINDOW', body: 'Lisbon out there for now. Moving soon — the paperwork is further along than the packing is.' },
     ],
   },
   lab: {

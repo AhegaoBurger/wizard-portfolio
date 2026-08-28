@@ -243,7 +243,7 @@ export function ContactPage({ accent }) {
   const P = PROFILE;
   return (
     <PageColumn width={560}>
-      <PageHead accent={accent} kicker="✉ SEND A RAVEN" title="CONTACT WIZARD" sub="Open to Applied AI / full-stack roles. Remote now, in Israel on arrival." />
+      <PageHead accent={accent} kicker="✉ SEND A RAVEN" title="CONTACT WIZARD" sub="Open to Applied AI / full-stack roles. Remote, available now." />
       <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
         <div className="crt-screen" style={{ ...accentVars(accent), width: 130, height: 150, flex: '0 0 auto', border: '1.5px solid #1f2c25', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', overflow: 'hidden' }}>
           <PixelWizard accent={accent} mode="idle" scale={3} />
@@ -263,7 +263,7 @@ export function ContactPage({ accent }) {
       <div style={{ border: '1.5px solid #2a3a32', padding: 12, marginTop: 18 }}>
         <div className="pix" style={{ fontSize: 8, color: '#8a96a2' }}>AVAILABILITY</div>
         <div style={{ fontFamily: "'VT323',monospace", fontSize: 16, color: '#cdd6df', marginTop: 7, lineHeight: 1.4 }}>
-          Remote, immediately. In-country in Israel from arrival — I have Israeli work rights as an oleh, so there is no visa question to resolve.
+          Remote, immediately. Currently based in Lisbon.
         </div>
         <div className="pix glow-ac" style={{ fontSize: 9, marginTop: 10 }}>◢ {P.location}</div>
       </div>

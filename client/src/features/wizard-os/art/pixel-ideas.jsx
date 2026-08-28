@@ -210,7 +210,7 @@ export function IDEAS() {
     ['levitate', p.green, 'LEVITATE', 'Two legs, executed concurrently, so neither is left hanging.'],
     ['enchant', p.ice, 'ENCHANT', 'Per-user memory, bound to a Durable Object that never forgets.'],
     ['ward', p.green, 'WARD', 'The approval queue. Nothing leaves without a human saying so.'],
-    ['teleport', p.violet, 'BLINK', 'Lisbon today, Israel on arrival.'],
+    ['teleport', p.violet, 'BLINK', 'Lisbon today. Wherever the work is, tomorrow.'],
     ['coffee', p.amber, 'DEV FUEL', 'A steaming mug — because, obviously.'],
     ['terminal', p.green, 'TERMINAL', 'Where most of this actually happened.'],
     ['cat', p.amber, 'LOAF', 'A sleeping cat familiar. Pure vibes.'],
